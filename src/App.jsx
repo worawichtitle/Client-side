@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Map from "./pages/Map";
 import List from "./pages/List";
 import Advice from "./pages/Advice";
+import Detail from "./pages/Detail/Detail";
 import NotFound from "./pages/NotFound";
 
 
@@ -19,6 +20,8 @@ function App() {
           <Route path="/map" element={<Map />} />
           <Route path="/list" element={<List />} />
           <Route path="/advice" element={<Advice />} />
+          <Route path="/detail/:cityName" element={<Detail />} />
+          <Route path="/detail" element={<Navigate to="/detail/here" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
