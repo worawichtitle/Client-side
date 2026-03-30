@@ -9,13 +9,11 @@ import NotFound from "./pages/NotFound";
 
 
 function App() {
-
   return (
-    <>
+    <div className="app-container">
       <Navbar />
-      <h1>Hello world test</h1>
-
-      <div className="content-container">
+      
+      <main className="main-content">
         <Routes>
           <Route path="/" element={<Navigate to="/map" />} />
           <Route path="/map" element={<Map />} />
@@ -23,11 +21,11 @@ function App() {
           <Route path="/advice" element={<Advice />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
+      </main>
 
       <Footer />
-    </>
-  )
+    </div>
+  );
 }
 
 export default App
