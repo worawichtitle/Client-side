@@ -1,34 +1,34 @@
-import { useState } from 'react';
-import './ThailandAqiTile.css';
+import { useState } from "react";
+import "./ThailandAqiTile.css";
 
 // Static Thailand city data with AQI values
 const THAILAND_CITIES = [
-  { id: 1, city: 'Chiang Mai', aqi: 182, flag: '🇹🇭' },
-  { id: 2, city: 'Bangkok', aqi: 165, flag: '🇹🇭' },
-  { id: 3, city: 'Phuket', aqi: 152, flag: '🇹🇭' },
-  { id: 4, city: 'Chiang Rai', aqi: 148, flag: '🇹🇭' },
-  { id: 5, city: 'Ubon Ratchathani', aqi: 145, flag: '🇹🇭' },
-  { id: 6, city: 'Khon Kaen', aqi: 142, flag: '🇹🇭' },
-  { id: 7, city: 'Udon Thani', aqi: 138, flag: '🇹🇭' },
-  { id: 8, city: 'Nakhon Ratchasima', aqi: 135, flag: '🇹🇭' },
-  { id: 9, city: 'Rayong', aqi: 128, flag: '🇹🇭' },
-  { id: 10, city: 'Samut Prakan', aqi: 120, flag: '🇹🇭' },
+  { id: 1, city: "Chiang Mai", aqi: 182, flag: "🇹🇭" },
+  { id: 2, city: "Bangkok", aqi: 165, flag: "🇹🇭" },
+  { id: 3, city: "Phuket", aqi: 152, flag: "🇹🇭" },
+  { id: 4, city: "Chiang Rai", aqi: 148, flag: "🇹🇭" },
+  { id: 5, city: "Ubon Ratchathani", aqi: 145, flag: "🇹🇭" },
+  { id: 6, city: "Khon Kaen", aqi: 142, flag: "🇹🇭" },
+  { id: 7, city: "Udon Thani", aqi: 138, flag: "🇹🇭" },
+  { id: 8, city: "Nakhon Ratchasima", aqi: 135, flag: "🇹🇭" },
+  { id: 9, city: "Rayong", aqi: 128, flag: "🇹🇭" },
+  { id: 10, city: "Samut Prakan", aqi: 120, flag: "🇹🇭" },
 ];
 
 const getAqiColor = (aqi) => {
-  if (aqi <= 50) return 'aqi-green';
-  if (aqi <= 100) return 'aqi-yellow';
-  if (aqi <= 150) return 'aqi-orange';
-  if (aqi <= 200) return 'aqi-red';
-  return 'aqi-purple';
+  if (aqi <= 50) return "aqi-green";
+  if (aqi <= 100) return "aqi-yellow";
+  if (aqi <= 150) return "aqi-orange";
+  if (aqi <= 200) return "aqi-red";
+  return "aqi-purple";
 };
 
 const getAqiLabel = (aqi) => {
-  if (aqi <= 50) return 'Good';
-  if (aqi <= 100) return 'Moderate';
-  if (aqi <= 150) return 'Unhealthy for Sensitive';
-  if (aqi <= 200) return 'Unhealthy';
-  return 'Very Unhealthy';
+  if (aqi <= 50) return "Good";
+  if (aqi <= 100) return "Moderate";
+  if (aqi <= 150) return "Unhealthy for Sensitive";
+  if (aqi <= 200) return "Unhealthy";
+  return "Very Unhealthy";
 };
 
 export default function ThailandAqiTile() {
@@ -42,7 +42,7 @@ export default function ThailandAqiTile() {
           <span className="date">APR 1, 2026 01:00–02:00</span>
         </div>
         <button className="toggle-btn">
-          <span className={`chevron ${isOpen ? 'open' : ''}`}>›</span>
+          <span className={`chevron ${isOpen ? "open" : ""}`}>›</span>
         </button>
       </div>
 
