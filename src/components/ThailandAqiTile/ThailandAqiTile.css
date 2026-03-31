@@ -1,0 +1,190 @@
+.thailand-aqi-tile {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.tile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e5e4e7;
+  transition: background 0.2s ease;
+}
+
+.tile-header:hover {
+  background: #f0f1f3;
+}
+
+.tile-title {
+  flex: 1;
+}
+
+.tile-title h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.date {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #999;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.chevron {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.chevron.open {
+  transform: rotate(90deg);
+}
+
+.tile-content {
+  padding: 20px;
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.ranking-table thead {
+  background: #f8f9fa;
+}
+
+.ranking-table th {
+  padding: 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #e5e4e7;
+}
+
+.ranking-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.ranking-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.ranking-number {
+  font-weight: 600;
+  color: #999;
+  width: 40px;
+}
+
+.city-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+.flag {
+  font-size: 20px;
+}
+
+.aqi-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+  min-width: 50px;
+  color: #fff;
+}
+
+.aqi-green {
+  background: linear-gradient(135deg, #81c784, #66bb6a);
+}
+
+.aqi-yellow {
+  background: linear-gradient(135deg, #ffeb3b, #ffc107);
+  color: #333 !important;
+}
+
+.aqi-orange {
+  background: linear-gradient(135deg, #ffb74d, #ff9800);
+}
+
+.aqi-red {
+  background: linear-gradient(135deg, #ef5350, #e53935);
+}
+
+.aqi-purple {
+  background: linear-gradient(135deg, #ab47bc, #8e24aa);
+}
+
+.tile-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  border-top: 1px solid #e5e4e7;
+}
+
+.see-full-ranking {
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3);
+}
+
+.see-full-ranking:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.4);
+}
+
+.see-full-ranking:active {
+  transform: translateY(0);
+}
