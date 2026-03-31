@@ -25,7 +25,7 @@ function MainAqiWidget({ aqiData, levelData }) {
 
   return (
     <div className={`widget ${levelData.class}`}>
-      
+
       <div className="widget-header-bar">
         <i className="fa-solid fa-location-dot widget-icon-city"></i>
         <span className="widget-city-name">{city?.name || 'สถานีตรวจวัด'}</span>

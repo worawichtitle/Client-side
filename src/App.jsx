@@ -6,7 +6,7 @@ import Map from "./pages/Map";
 import List from "./pages/List";
 import Advice from "./pages/Advice";
 import Detail from "./pages/Detail/Detail";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/NotFound/NotFound";
 
 
 function App() {

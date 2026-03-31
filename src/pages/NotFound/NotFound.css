@@ -1,0 +1,51 @@
+.notfound-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* ให้สูงพอประมาณเพื่อให้อยู่กลางหน้าจอ */
+  text-align: center;
+}
+
+.notfound-code {
+  font-size: 120px;
+  margin: 0;
+  line-height: 1;
+  background: linear-gradient(to right, #29b6f6, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.notfound-icon {
+  font-size: 50px;
+  margin: 20px 0;
+}
+
+.notfound-content h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.notfound-content p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.back-home-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.back-home-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
