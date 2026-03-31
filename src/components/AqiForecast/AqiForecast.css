@@ -23,7 +23,7 @@
 }
 .forecast-header i {
   color: #333;
-  transform: translateY(2px);
+  transform: translateY(-1px);
 }
 
 .forecast-list {
@@ -45,7 +45,7 @@
   border-bottom: none;
 }
 .forecast-item:hover {
-  background-color: #fafafa;
+  background-color: rgba(41, 181, 246, 0.05);
   border-radius: 8px;
   padding: 16px 12px;
   margin: 0 -12px;
@@ -54,15 +54,15 @@
 
 
 .forecast-item-today {
-  background-color: #f8fbff;
+  background-color: rgba(41, 181, 246, 0.06);
   border-radius: 8px;
   padding: 16px 12px;
   margin: 0 -12px;
   border-bottom: none;
 }
 .forecast-item-today .forecast-date-text {
-  font-weight: 800;
-  color: #007bff;
+  font-weight: 700;
+  color: #0284c7;
 }
 
 .forecast-item-past {

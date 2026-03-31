@@ -25,6 +25,7 @@ body {
 .main-content {
   flex: 1; 
   margin-top: var(--nav-height); /* เว้นที่ให้ Navbar ที่ fix ไว้ */
+  margin-bottom: 20px;
   padding: 20px;
   width: 100%;
   max-width: 1200px;
@@ -43,11 +44,11 @@ body {
   color: #ffffff !important
 }
 .aqi-yellow { 
-  background: linear-gradient(135deg, #fff566, #ffed4c); 
+  background: linear-gradient(135deg, #FFEA00, #FFC107); 
   color: #333 !important;
 }
 .aqi-orange { 
-  background: linear-gradient(135deg, #ffb74d, #ffa726); 
+  background: linear-gradient(135deg, #FF9800, #E65100); 
   color: #ffffff !important;
 }
 .aqi-red { 

@@ -33,15 +33,14 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  
-  background: rgba(0, 0, 0, 0.01); 
+  background-color: rgba(41, 181, 246, 0.03);
   padding: 14px 20px 14px 14px;
   border-radius: 16px;
   
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 .health-advice-card:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background-color: rgba(41, 181, 246, 0.06);
   transform: translateX(4px);
 }
 

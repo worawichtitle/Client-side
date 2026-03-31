@@ -6,6 +6,8 @@ import './Detail.css';
 import MainAqiWidget from '../../components/MainAqiWidget/MainAqiWidget';
 import AqiForecast from '../../components/AqiForecast/AqiForecast';
 import HealthAdvice from '../../components/HealthAdvice/HealthAdvice';
+import Loading from '../../components/Loading/Loading';
+import Error from '../../components/Error/Error';
 
 const API_TOKEN = import.meta.env.VITE_AQI_API_TOKEN;
 const BASE_URL = "https://api.waqi.info/feed";
@@ -48,23 +50,12 @@ function Detail() {
   }, [cityName]);
   
   const levelData = getThaiAqiLevel(aqiData?.aqi);
-
   if (isLoading) {
-    return (
-      <div className="loading-container">
-        <p>กำลังดึงข้อมูลสภาพอากาศของ {cityName}...</p>
-      </div>
-    );
+    return <Loading message={`กำลังดึงข้อมูลสภาพอากาศของ ${cityName}...`} />;
   }
 
   if (error) {
-    return (
-      <div className="error-container">
-        <h2>ขออภัย! เกิดข้อผิดพลาด</h2>
-        <p>{error}</p>
-        <Link to="/">กลับไปหน้าหลัก</Link>
-      </div>
-    );
+    return <Error message={error} backLink="/list" backText="กลับไปหน้ารายการ" />;
   }
 
   return (
