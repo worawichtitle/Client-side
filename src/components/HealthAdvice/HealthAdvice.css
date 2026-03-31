@@ -1,0 +1,76 @@
+.health-advice-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f4f8;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.health-advice-header h3 {
+  font-size: 1.15rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.health-advice-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1; 
+  justify-content: start; 
+}
+
+.health-advice-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  
+  background: rgba(0, 0, 0, 0.01); 
+  padding: 14px 20px 14px 14px;
+  border-radius: 16px;
+  
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.health-advice-card:hover {
+  background: rgba(0, 0, 0, 0.02);
+  transform: translateX(4px);
+}
+
+.health-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  
+}
+
+.health-text-content {
+  flex: 1;
+}
+.health-text-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+}
+.health-text-content p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #718096;
+  line-height: 1.4;
+}

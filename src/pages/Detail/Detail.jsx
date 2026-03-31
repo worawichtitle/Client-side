@@ -5,6 +5,7 @@ import { getThaiAqiLevel } from '../../utils/aqiHelper';
 import './Detail.css';
 import MainAqiWidget from '../../components/MainAqiWidget/MainAqiWidget';
 import AqiForecast from '../../components/AqiForecast/AqiForecast';
+import HealthAdvice from '../../components/HealthAdvice/HealthAdvice';
 
 const API_TOKEN = import.meta.env.VITE_AQI_API_TOKEN;
 const BASE_URL = "https://api.waqi.info/feed";
@@ -80,29 +81,16 @@ function Detail() {
         <div className="detail-bottom-widgets-layout">
 
           {/* left  */}
-          {aqiData?.forecast?.daily?.pm25?.length > 0 ? (
-            <div className="detail-layout-col-left">
-              <AqiForecast aqiData={aqiData} />
-            </div>
-          ) : (
-            <div className="detail-layout-col-full">
-              <div className="detail-forecast-empty-card">
-                <i className="fa-solid fa-calendar-xmark"></i>
-                <p>ไม่มีข้อมูลพยากรณ์ล่วงหน้าสำหรับสถานีนี้</p>
-              </div>
-            </div>
-          )}
-
-          {/* right */}
-          <div style={{ width: '50%' }}>
+          <div className="detail-layout-col-left">
+            <AqiForecast aqiData={aqiData} />
           </div>
 
+          {/* right */}
+          <div className="detail-layout-col-right">
+            <HealthAdvice levelData={levelData} />
+          </div>
         </div>
       </main>
-      
-      <footer>
-        <p>คำแนะนำสุขภาพจะปรากฏที่นี่ตามระดับ AQI</p>
-      </footer>
     </div>
   );
 };

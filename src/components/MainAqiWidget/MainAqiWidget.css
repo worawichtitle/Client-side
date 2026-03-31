@@ -8,19 +8,19 @@
 
 
 .widget.aqi-blue {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 0px 160px 30px rgba(41, 182, 246, 0.45);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 0px 180px 40px rgba(41, 182, 246, 0.45);
 }
 .widget.aqi-green {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 0px 160px 30px rgba(102, 187, 106, 0.55);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 0px 180px 40px rgba(102, 187, 106, 0.55);
 }
 .widget.aqi-yellow {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 0px 160px 30px rgba(255, 237, 76, 0.55);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 0px 180px 40px rgba(255, 237, 76, 0.55);
 }
 .widget.aqi-orange {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 0px 160px 30px rgba(255, 167, 38, 0.45);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 0px 180px 40px rgba(255, 167, 38, 0.45);
 }
 .widget.aqi-red {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 0px 160px 30px rgba(239, 83, 80, 0.45);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 0px 180px 40px rgba(239, 83, 80, 0.45);
 }
 
 .widget-header-bar {
@@ -34,7 +34,7 @@
   color: inherit;
 }
 .widget-city-name {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.2rem;
 }
 
@@ -74,7 +74,7 @@
 
 .widget-big-num {
   font-size: 5rem;
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1;
   margin: 10px 0;
 }

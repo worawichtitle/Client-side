@@ -3,8 +3,12 @@
   border-radius: 16px;
   padding: 24px 30px 8px 30px; 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-  margin-top: 30px;
   border: 1px solid #f0f4f8;
+
+  height: 100%; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .forecast-header h3 {
@@ -15,7 +19,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 700;
+  font-weight: 600;
 }
 .forecast-header i {
   color: #333;
@@ -25,6 +29,7 @@
 .forecast-list {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .forecast-item {
@@ -33,7 +38,7 @@
   justify-content: space-between;
   padding: 16px 0;
   border-bottom: 1px solid #f0f4f8;
-  transition: background-color 0.2s;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .forecast-item:last-child {
@@ -44,6 +49,7 @@
   border-radius: 8px;
   padding: 16px 12px;
   margin: 0 -12px;
+  transform: translateX(4px);
 }
 
 
@@ -119,6 +125,30 @@
 .forecast-max {
   color: #e53e3e;
 }
+
+
+.forecast-empty-state {
+  justify-content: center;
+  align-items: center;
+}
+
+.forecast-empty-content {
+  text-align: center;
+  color: #a0aec0;
+}
+
+.forecast-empty-content i {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  color: #cbd5e0; /* ไอคอนสีเทาจางๆ */
+}
+
+.forecast-empty-content p {
+  font-size: 1.05rem;
+  margin: 0;
+  font-weight: 500;
+}
+
 
 @media (max-width: 600px) {
   .forecast-container {

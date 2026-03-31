@@ -4,7 +4,14 @@ import './AqiForecast.css';
 function AqiForecast({ aqiData }) {
   const pm25Data = aqiData?.forecast?.daily?.pm25;
   if (!pm25Data || pm25Data.length === 0) {
-    return null;
+    return (
+      <div className="forecast-container forecast-empty-state">
+        <div className="forecast-empty-content">
+          <i className="fa-solid fa-calendar-xmark"></i>
+          <p>ไม่มีข้อมูลพยากรณ์ล่วงหน้า</p>
+        </div>
+      </div>
+    );
   }
 
   const todayStr = aqiData.time?.s?.split(' ')[0] || new Date().toISOString().split('T')[0];
