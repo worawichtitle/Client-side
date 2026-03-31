@@ -13,7 +13,7 @@ const Navbar = () => {
         <ul className="nav-menu">
           <li><Link to="/map">หน้าแรก</Link></li>
           <li><Link to="/list">รายการ</Link></li>
-          <li><Link to="/advice">แนะนำ</Link></li>
+          <li><Link to="/detail">ข้อมูลคุณภาพอากาศ</Link></li>
         </ul>
         <div className="nav-spacer"></div>
       </div>

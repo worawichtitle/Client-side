@@ -1,0 +1,141 @@
+.forecast-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 30px 8px 30px; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  margin-top: 30px;
+  border: 1px solid #f0f4f8;
+}
+
+.forecast-header h3 {
+  font-size: 1.15rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+.forecast-header i {
+  color: #333;
+  transform: translateY(2px);
+}
+
+.forecast-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.forecast-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f4f8;
+  transition: background-color 0.2s;
+}
+
+.forecast-item:last-child {
+  border-bottom: none;
+}
+.forecast-item:hover {
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 16px 12px;
+  margin: 0 -12px;
+}
+
+
+.forecast-item-today {
+  background-color: #f8fbff;
+  border-radius: 8px;
+  padding: 16px 12px;
+  margin: 0 -12px;
+  border-bottom: none;
+}
+.forecast-item-today .forecast-date-text {
+  font-weight: 800;
+  color: #007bff;
+}
+
+.forecast-item-past {
+  opacity: 0.65;
+}
+
+.forecast-date {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+.forecast-badge {
+  font-size: 0.7rem;
+  background: #edf2f7;
+  color: #718096;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.forecast-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 8px;
+  min-width: 48px;
+  height: 28px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.forecast-num {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+
+.forecast-minmax {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+.forecast-min {
+  color: #38a169;
+}
+.forecast-line {
+  width: 20px;
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 2px;
+}
+.forecast-max {
+  color: #e53e3e;
+}
+
+@media (max-width: 600px) {
+  .forecast-container {
+    padding: 20px 16px 8px 16px;
+  }
+  .forecast-aqi {
+    flex: 1;
+  }
+  .forecast-pill {
+    min-width: unset;
+    padding: 2px 6px;
+  }
+  .forecast-minmax {
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+  .forecast-line {
+    width: 12px;
+  }
+}

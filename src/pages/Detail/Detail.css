@@ -5,11 +5,12 @@
   margin-bottom: 24px;
 }
 .detail-header h1 {
+  color: #333;
   margin: 0;
   font-size: 1.5rem;
   line-height: 1;
 }
-.back-btn {
+.detail-back-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -25,20 +26,65 @@
   transform: translateY(1px);
 }
 
-.back-btn:hover {
+.detail-back-btn:hover {
   background-color: #ffffff80;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: #000;
 }
 
-.back-btn i {
+.detail-back-btn i {
   font-size: 0.8rem;
   transform: translateY(1px); 
 }
 
-.detail-section {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 8px 24px;
-  margin-top: 24px;
+
+.detail-bottom-widgets-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
+
+.detail-layout-col-left,
+.detail-layout-col-right {
+  flex:auto; 
+  min-width: 0;
+}
+
+.detail-layout-col-full {
+  width: 100%;
+  flex: 0 0 100%;
+}
+
+.detail-forecast-empty-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 20px;
+  text-align: center;
+  color: #b4c1d1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  margin-top: 28px;
+}
+
+.detail-forecast-empty-card i {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  color: #dae0e9;
+}
+
+.detail-forecast-empty-card p {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 00;
+}
+
+@media (max-width: 768px) {
+  .bottom-widgets-layout {
+    flex-direction: column; 
+  }
+  .layout-col-left,
+  .layout-col-right {
+    width: 100%;
+  }
+}
+

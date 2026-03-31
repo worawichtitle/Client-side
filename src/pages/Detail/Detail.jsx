@@ -4,11 +4,12 @@ import { getThaiAqiLevel } from '../../utils/aqiHelper';
 
 import './Detail.css';
 import MainAqiWidget from '../../components/MainAqiWidget/MainAqiWidget';
+import AqiForecast from '../../components/AqiForecast/AqiForecast';
 
-const API_TOKEN = "";
+const API_TOKEN = import.meta.env.VITE_AQI_API_TOKEN;
 const BASE_URL = "https://api.waqi.info/feed";
 
-const Detail = () => {
+function Detail() {
   const { cityName = "here" } = useParams(); 
   
   const [aqiData, setAqiData] = useState(null);
@@ -26,10 +27,10 @@ const Detail = () => {
 
         if (result?.status === "ok") {
           
-          if (result.data?.status === "error") {
-            setError(`ไม่พบข้อมูลสถานี: ${result.data?.msg || 'ไม่ทราบสาเหตุ'}`); 
+          if (result?.data?.status === "error") {
+            setError(`ไม่พบข้อมูลสถานี: ${result?.data?.msg || 'ไม่ทราบสาเหตุ'}`); 
           } else {
-            setAqiData(result.data);
+            setAqiData(result?.data);
           }
           
         } else {
@@ -68,7 +69,7 @@ const Detail = () => {
   return (
     <div className="detail-page-container">
       <header className="detail-header">
-        <Link to="/list" className="back-btn">
+        <Link to="/list" className="detail-back-btn">
           <i className="fa-solid fa-chevron-left"></i>
         </Link>
         <h1>รายงานคุณภาพอากาศ: {aqiData?.city?.name}</h1>
@@ -76,20 +77,27 @@ const Detail = () => {
       <main>
         {aqiData && <MainAqiWidget aqiData={aqiData} levelData={levelData} />}
 
-        <section className="detail-section">
-          <h3>พยากรณ์ล่วงหน้า (PM 2.5)</h3>
-          <ul>
-            {aqiData?.forecast?.daily?.pm25?.slice(0, 5).map((item, index) => (
-              <li key={index}>
-                วันที่: {item.day} | ค่าเฉลี่ย: {item.avg}
-              </li>
-            ))}
-          </ul>
-        </section>
+        <div className="detail-bottom-widgets-layout">
 
-        <section className="detail-section">
-          <h3>ผลกระทบ</h3>
-        </section>
+          {/* left  */}
+          {aqiData?.forecast?.daily?.pm25?.length > 0 ? (
+            <div className="detail-layout-col-left">
+              <AqiForecast aqiData={aqiData} />
+            </div>
+          ) : (
+            <div className="detail-layout-col-full">
+              <div className="detail-forecast-empty-card">
+                <i className="fa-solid fa-calendar-xmark"></i>
+                <p>ไม่มีข้อมูลพยากรณ์ล่วงหน้าสำหรับสถานีนี้</p>
+              </div>
+            </div>
+          )}
+
+          {/* right */}
+          <div style={{ width: '50%' }}>
+          </div>
+
+        </div>
       </main>
       
       <footer>
