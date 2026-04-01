@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getThaiAqiLevel } from "../utils/aqiHelper";
+import { getAqiLevel } from "../utils/aqiHelper";
 import Loading from "../components/Loading/Loading";
 import Error from "../components/Error/Error";
 import "./List.css";
@@ -95,7 +95,7 @@ export default function List() {
         ) : (
           <div className="cities-grid">
             {cities.map((city, index) => {
-              const levelData = getThaiAqiLevel(city.aqi);
+              const levelData = getAqiLevel(city.aqi);
               return (
                 <Link
                   key={city.id}

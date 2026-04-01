@@ -91,7 +91,14 @@ body {
   background: linear-gradient(135deg, #e57373, #ef5350);
   color: #ffffff !important;
 }
-
+.aqi-purple { 
+  background: linear-gradient(135deg, #ab47bc 0%, #7b1fa2 100%); 
+  color: #ffffff !important; 
+}
+.aqi-maroon { 
+  background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%); 
+  color: #ffffff !important; 
+}
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: "Inter Variable", sans-serif;

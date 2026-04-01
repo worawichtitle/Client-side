@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getThaiAqiLevel } from '../../utils/aqiHelper';
+import { getAqiLevel } from '../../utils/aqiHelper';
 
 import './Detail.css';
 import MainAqiWidget from '../../components/MainAqiWidget/MainAqiWidget';
@@ -49,7 +49,7 @@ function Detail() {
     fetchCityData();
   }, [cityName]);
   
-  const levelData = getThaiAqiLevel(aqiData?.aqi);
+  const levelData = getAqiLevel(aqiData?.aqi);
   if (isLoading) {
     return <Loading message={`กำลังดึงข้อมูลสภาพอากาศของ ${cityName}...`} />;
   }
