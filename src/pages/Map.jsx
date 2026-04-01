@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import React, { useState, useEffect, useRef } from 'react';
+import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import { useNavigate } from 'react-router-dom';
 
 import L from 'leaflet';
@@ -19,7 +19,21 @@ export default function Map() {
     const navigate = useNavigate();
     const [stations, setStations] = useState([]);
     const [hoveredStation, setHoveredStation] = useState(null);
-    const position = [13.7563, 100.5018]; // พิกัดเริ่มต้น (กรุงเทพฯ)
+    const [position, setPosition] = useState([13.7563, 100.5018]); // พิกัดเริ่มต้น (กรุงเทพฯ)
+    const mapRef = useRef(null);
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                const coords = [pos.coords.latitude, pos.coords.longitude];
+                setPosition(coords);
+                if (mapRef.current) {
+                    mapRef.current.flyTo(coords, 11);
+                }
+            },
+            () => {}
+        );
+    }, []);
 
     const fetchStations = async (bounds) => {
         const url = `https://api.waqi.info/map/bounds/?latlng=${bounds}&token=${API_TOKEN}`;
@@ -52,7 +66,7 @@ export default function Map() {
                 }
             }
             setHoveredStation(found);
-        },
+            },
         });
         return null;
     }
@@ -60,6 +74,7 @@ export default function Map() {
     return (
         <div style={{ height: 'calc(100vh - 160px)', width: '100%' }}>
         <MapContainer
+            ref={mapRef}
             center={position}
             zoom={11} 
             scrollWheelZoom={true}
