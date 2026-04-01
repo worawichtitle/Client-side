@@ -359,7 +359,7 @@ export default function ThailandAqiTile() {
                 </div>
                 <button
                   className="detail-navigate-btn"
-                  onClick={() => navigate(`/detail/${selectedCity.city}`)}
+                  onClick={() => navigate(`/detail/@${selectedCity.id}`)}
                 >
                   ดูรายละเอียด →
                 </button>
