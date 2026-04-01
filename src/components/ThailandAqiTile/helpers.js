@@ -3,12 +3,12 @@ import { POLLUTANTS } from "./constants";
 
 // ── Color Mappings (from CSS classes) ──
 const CLASS_COLORS = {
-  "aqi-green": { color: "#22c55e", bg: "#f0fdf4", textColor: "#15803d" },
-  "aqi-yellow": { color: "#eab308", bg: "#fefce8", textColor: "#854d0e" },
-  "aqi-orange": { color: "#f97316", bg: "#fff7ed", textColor: "#9a3412" },
-  "aqi-red": { color: "#ef4444", bg: "#fef2f2", textColor: "#991b1b" },
-  "aqi-purple": { color: "#a855f7", bg: "#faf5ff", textColor: "#6b21a8" },
-  "aqi-maroon": { color: "#6a0dad", bg: "#f3e5fb", textColor: "#4a0080" },
+  "aqi-green": { color: "#00E400", bg: "#D4FFCE", textColor: "#005412" },
+  "aqi-yellow": { color: "#FFFF00", bg: "#FFFACD", textColor: "#8B8B00" },
+  "aqi-orange": { color: "#FF7E00", bg: "#FFE4B5", textColor: "#8B3E00" },
+  "aqi-red": { color: "#FF0000", bg: "#FFE4E1", textColor: "#8B0000" },
+  "aqi-purple": { color: "#670099", bg: "#E6D5F0", textColor: "#340052" },
+  "aqi-maroon": { color: "#7E0123", bg: "#F0D9E8", textColor: "#3F0012" },
   "aqi-unknown": { color: "#999", bg: "#f5f5f5", textColor: "#666" },
 };
 

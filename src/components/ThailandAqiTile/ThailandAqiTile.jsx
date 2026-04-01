@@ -449,6 +449,18 @@ export default function ThailandAqiTile() {
                   const prev = AQI_THRESHOLDS[i - 1];
                   return c.aqi <= threshold.max && (!prev || c.aqi > prev.max);
                 }).length;
+
+                // Generate range text dynamically from thresholds
+                let rangeText = "";
+                if (i === 0) {
+                  rangeText = `0–${threshold.max}`;
+                } else if (threshold.max === Infinity) {
+                  rangeText = `${AQI_THRESHOLDS[i - 1].max + 1}+`;
+                } else {
+                  const prevMax = AQI_THRESHOLDS[i - 1].max;
+                  rangeText = `${prevMax + 1}–${threshold.max}`;
+                }
+
                 return (
                   <div key={threshold.label} className="legend-item">
                     <span
@@ -457,19 +469,7 @@ export default function ThailandAqiTile() {
                     />
                     <div className="legend-info">
                       <span className="legend-label">{threshold.label}</span>
-                      <span className="legend-range">
-                        {i === 0
-                          ? "0–50"
-                          : i === 1
-                            ? "51–100"
-                            : i === 2
-                              ? "101–150"
-                              : i === 3
-                                ? "151–200"
-                                : i === 4
-                                  ? "201–299"
-                                  : "300+"}
-                      </span>
+                      <span className="legend-range">{rangeText}</span>
                     </div>
                     {count > 0 && (
                       <span
