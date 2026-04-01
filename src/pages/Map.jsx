@@ -2,6 +2,7 @@ import React from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
 import 'leaflet/dist/leaflet.css';
+import MapLevel from '../components/MapLevel/MapLevel';
 
 export default function Map() {
     const WAQI_TOKEN = "919cfe56edba50ac69a4158fd74f1a73f4fa7ce5";
@@ -28,6 +29,7 @@ export default function Map() {
             attribution='Air Quality Tiles &copy; <a href="http://waqi.info">waqi.info</a>'
             />
         </MapContainer>
+        <MapLevel />
         </div>
     );
 }
