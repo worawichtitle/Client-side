@@ -22,7 +22,7 @@
 }
 
 .aqipage-title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
   color: #111;
   margin: 0 0 3px;
@@ -30,7 +30,7 @@
 }
 
 .aqipage-subtitle {
-  font-size: 12px;
+  font-size: 14px;
   color: #666;
   margin: 0;
   font-weight: 500;
@@ -55,7 +55,7 @@
 }
 
 .summary-stat-label {
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 600;
   color: #ccc;
   text-transform: uppercase;
@@ -63,14 +63,14 @@
 }
 
 .summary-stat-value {
-  font-size: 26px;
+  font-size: 29px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
 }
 
 .summary-stat-city {
-  font-size: 10px;
+  font-size: 13px;
   color: #999;
   max-width: 100px;
   text-align: right;
@@ -91,7 +91,7 @@
   border-radius: 8px;
   border: 1px solid #e5e7eb;
   background: #fff;
-  font-size: 18px;
+  font-size: 21px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -136,7 +136,7 @@
 }
 
 .alert-emoji {
-  font-size: 20px;
+  font-size: 23px;
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -147,13 +147,13 @@
 }
 
 .alert-title {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
   margin: 0 0 3px;
 }
 
 .alert-text {
-  font-size: 13px;
+  font-size: 16px;
   color: #555;
   margin: 0;
   line-height: 1.6;
@@ -164,7 +164,7 @@
   align-self: center;
   padding: 3px 10px;
   border-radius: 99px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   color: #fff;
   white-space: nowrap;
@@ -174,13 +174,13 @@
 
 .aqipage-body {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 360px 1fr;
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .section-label {
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 600;
   color: #bbb;
   text-transform: uppercase;
@@ -209,7 +209,7 @@
   margin-top: 10px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 16px;
   outline: none;
   box-sizing: border-box;
   transition:
@@ -234,7 +234,7 @@
 .sort-tab {
   flex: 1;
   padding: 5px 6px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   font-family: inherit;
   border: 1px solid #e5e7eb;
@@ -265,7 +265,7 @@
   flex-direction: column;
   gap: 6px;
   margin-top: 12px;
-  max-height: 520px;
+  max-height: 600px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #e5e7eb transparent;
@@ -299,8 +299,8 @@
 }
 
 .rank-city-name {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   color: #1f2937;
   white-space: nowrap;
   overflow: hidden;
@@ -334,14 +334,14 @@
   padding: 3px 8px;
   border-radius: 5px;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 15px;
   color: #fff;
   min-width: 36px;
   text-align: center;
 }
 
 .rank-level {
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -350,7 +350,7 @@
   text-align: center;
   color: #9ca3af;
   padding: 16px;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 /* ── Right panel ── */
@@ -382,7 +382,7 @@
 }
 
 .detail-city-name {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 600;
   color: #111;
   margin: 2px 0 0;
@@ -395,7 +395,7 @@
   border-radius: 8px;
   border: 1px solid #e5e7eb;
   background: #f9fafb;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
   font-family: inherit;
   color: #374151;
@@ -459,7 +459,7 @@
 
 .aqi-gauge-label-item {
   position: absolute;
-  font-size: 9px;
+  font-size: 12px;
   color: #bbb;
   font-variant-numeric: tabular-nums;
   transform: translateX(-50%);
@@ -474,14 +474,14 @@
 }
 
 .aqi-gauge-num {
-  font-size: 42px;
+  font-size: 45px;
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
 }
 
 .aqi-gauge-label {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
 }
 
@@ -512,14 +512,14 @@
 }
 
 .pollutant-name {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   color: #374151;
   display: block;
 }
 
 .pollutant-desc {
-  font-size: 9px;
+  font-size: 12px;
   color: #9ca3af;
   display: block;
   margin-top: 1px;
@@ -531,13 +531,13 @@
 }
 
 .pollutant-val {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 600;
   color: #111;
 }
 
 .pollutant-unit {
-  font-size: 9px;
+  font-size: 12px;
   color: #9ca3af;
   display: block;
   text-align: right;
@@ -571,7 +571,7 @@
 }
 
 .pollutant-status {
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
   display: block;
 }
@@ -605,13 +605,13 @@
 }
 
 .legend-label {
-  font-size: 12px;
+  font-size: 15px;
   color: #374151;
   font-weight: 500;
 }
 
 .legend-range {
-  font-size: 10px;
+  font-size: 13px;
   color: #9ca3af;
   font-variant-numeric: tabular-nums;
 }
@@ -619,7 +619,7 @@
 .legend-count {
   padding: 2px 8px;
   border-radius: 99px;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -642,13 +642,13 @@
 }
 
 .quick-stat-icon {
-  font-size: 18px;
+  font-size: 21px;
   flex-shrink: 0;
 }
 
 .quick-stat-val {
   display: block;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 600;
   color: #111;
   letter-spacing: -0.03em;
@@ -657,7 +657,7 @@
 
 .quick-stat-desc {
   display: block;
-  font-size: 10px;
+  font-size: 13px;
   color: #9ca3af;
 }
 
@@ -675,18 +675,18 @@
 
 .aqipage-loading p,
 .aqipage-error p {
-  font-size: 15px;
+  font-size: 18px;
   color: #6b7280;
   margin: 0;
 }
 
 .loading-sub {
-  font-size: 12px;
+  font-size: 15px;
   color: #bbb;
 }
 
 .error-icon {
-  font-size: 32px;
+  font-size: 35px;
 }
 
 .retry-btn {
@@ -695,7 +695,7 @@
   border-radius: 8px;
   border: 1px solid #e5e7eb;
   background: #fff;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
@@ -730,13 +730,13 @@
 .loading-inline {
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 15px;
   color: #9ca3af;
   margin: 8px 0 0;
 }
 
 .no-data-text {
-  font-size: 12px;
+  font-size: 15px;
   color: #d1d5db;
   margin: 8px 0 0;
 }
