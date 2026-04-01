@@ -451,16 +451,19 @@
 }
 
 .aqi-gauge-labels {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  height: 16px;
   margin-top: 6px;
   padding: 0 2px;
 }
 
-.aqi-gauge-labels span {
+.aqi-gauge-label-item {
+  position: absolute;
   font-size: 9px;
   color: #bbb;
   font-variant-numeric: tabular-nums;
+  transform: translateX(-50%);
+  top: 0;
 }
 
 .aqi-gauge-readout {
