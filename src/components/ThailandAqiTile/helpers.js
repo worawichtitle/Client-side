@@ -30,7 +30,7 @@ export const AQI_THRESHOLDS = [
   { max: 100, label: "ปานกลาง" },
   { max: 150, label: "เริ่มมีผลกระทบ" },
   { max: 200, label: "มีผลกระทบ" },
-  { max: 300, label: "มีผลกระทบอย่างมาก" },
+  { max: 299, label: "มีผลกระทบอย่างมาก" },
   { max: Infinity, label: "เป็นอันตราย" },
 ];
 

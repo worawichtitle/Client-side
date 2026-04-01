@@ -2,12 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ThailandAqiTile.css";
 import { getAqiLevel, getColorFromClass } from "../../utils/aqiHelper";
-import {
-  HEALTH_RECS,
-  POLLUTANTS,
-  SORT_OPTIONS,
-  LABELS,
-} from "./constants";
+import { HEALTH_RECS, POLLUTANTS, SORT_OPTIONS, LABELS } from "./constants";
 import { AqiGauge, LoadingState, ErrorState } from "./components";
 import {
   getLevel,
@@ -187,7 +182,9 @@ export default function ThailandAqiTile() {
                 <span className="summary-stat-label">แย่ที่สุด</span>
                 <span
                   className="summary-stat-value"
-                  style={{ color: getColorFromClass(getLevel(worst.aqi).class) }}
+                  style={{
+                    color: getColorFromClass(getLevel(worst.aqi).class),
+                  }}
                 >
                   {worst.aqi}
                 </span>
@@ -308,7 +305,11 @@ export default function ThailandAqiTile() {
                     key={city.id}
                     className={`ranking-row ${isSelected ? "ranking-row--selected" : ""}`}
                     onClick={() => handleCityClick(city)}
-                    style={isSelected ? { borderColor: getColorFromClass(level.class) } : {}}
+                    style={
+                      isSelected
+                        ? { borderColor: getColorFromClass(level.class) }
+                        : {}
+                    }
                   >
                     <div className="rank-bar-wrap">
                       <div className="rank-city-name">{city.city}</div>
@@ -465,7 +466,9 @@ export default function ThailandAqiTile() {
                               ? "101–150"
                               : i === 3
                                 ? "151–200"
-                                : "201+"}
+                                : i === 4
+                                  ? "201–299"
+                                  : "300+"}
                       </span>
                     </div>
                     {count > 0 && (
