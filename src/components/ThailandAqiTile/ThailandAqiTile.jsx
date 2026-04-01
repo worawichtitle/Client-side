@@ -57,7 +57,7 @@ export default function ThailandAqiTile() {
           const cityData = result.data.map((station) => ({
             id: station.uid || station.idx,
             city: station.city?.name || station.station?.name || "Unknown",
-            aqi: station.aqi || 0,
+            aqi: Math.max(0, Number(station.aqi) || 0), // Ensure it's a number
             iaqi: station.iaqi || {},
             time: station.time?.s || null,
             geo: station.city?.geo || station.station?.geo || null,

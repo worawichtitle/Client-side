@@ -52,7 +52,19 @@ export const getPollutantStatus = (key, value) => {
 
 export const sortCities = (cities, mode) => {
   const copy = [...cities];
-  if (mode === "worst") return copy.sort((a, b) => b.aqi - a.aqi);
-  if (mode === "best") return copy.sort((a, b) => a.aqi - b.aqi);
-  return copy.sort((a, b) => a.city.localeCompare(b.city));
+  if (mode === "worst") {
+    return copy.sort((a, b) => {
+      const aqiA = typeof a.aqi === "number" ? a.aqi : Number(a.aqi) || 0;
+      const aqiB = typeof b.aqi === "number" ? b.aqi : Number(b.aqi) || 0;
+      return aqiB - aqiA; // Highest first
+    });
+  }
+  if (mode === "best") {
+    return copy.sort((a, b) => {
+      const aqiA = typeof a.aqi === "number" ? a.aqi : Number(a.aqi) || 0;
+      const aqiB = typeof b.aqi === "number" ? b.aqi : Number(b.aqi) || 0;
+      return aqiA - aqiB; // Lowest first
+    });
+  }
+  return copy.sort((a, b) => a.city.localeCompare(b.city, "th"));
 };
