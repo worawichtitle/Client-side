@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import { useNavigate } from 'react-router-dom';
 
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import MapLevel from '../components/MapLevel/MapLevel';
+import MapPopup from '../components/MapPopup/MapPopup';
 
 let DefaultIcon = L.icon({
     iconUrl: "-",
@@ -41,15 +42,6 @@ export default function Map() {
         return null;
     }
 
-    // ข้อมูลคำแนะนำตามระดับสี เดี๋ยวเปลี่ยนเป็นตาม utils
-    const getAdvice = (aqi) => {
-        if (aqi <= 50) return { text: "ดี", color: "#00e400" };
-        if (aqi <= 100) return { text: "ปานกลาง", color: "#ffff00" };
-        if (aqi <= 150) return { text: "เริ่มมีผลต่อกลุ่มเสี่ยง", color: "#ff7e00" };
-        if (aqi <= 200) return { text: "ไม่ดีต่อสุขภาพ", color: "#ff0000" };
-        return { text: "อันตราย", color: "#8f3f97" };
-    };
-    
     return (
         <div style={{ height: 'calc(100vh - 160px)', width: '100%' }}>
         <MapContainer
@@ -73,7 +65,6 @@ export default function Map() {
             <MapEvents />
 
             {stations.map((s) => {
-                const info = getAdvice(s.aqi);
                 let closeTimeout;
                 return (
                     <Marker 
@@ -93,13 +84,7 @@ export default function Map() {
                             click: () => navigate(`/detail/@${s.uid}`), // กดแล้วไปหน้า detail
                         }}
                     >
-                        <Popup offset={[0, -40]}>
-                            <div style={{ textAlign: 'center', padding: '5px' }}>
-                                <strong>{s.station.name}</strong><br />
-                                AQI: <span style={{ color: info.color, fontWeight: 'bold' }}>{s.aqi}</span><br />
-                                สถานะ: {info.text}
-                            </div>
-                        </Popup>
+                        <MapPopup station={s} navigate={navigate} />
                     </Marker>
                 );
             })}
