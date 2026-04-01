@@ -18,6 +18,7 @@ export default function Map() {
     const API_TOKEN = import.meta.env.VITE_AQI_API_TOKEN;
     const navigate = useNavigate();
     const [stations, setStations] = useState([]);
+    const [hoveredStation, setHoveredStation] = useState(null);
     const position = [13.7563, 100.5018]; // พิกัดเริ่มต้น (กรุงเทพฯ)
 
     const fetchStations = async (bounds) => {
@@ -38,6 +39,20 @@ export default function Map() {
                 const boundsStr = `${b.getSouth()},${b.getWest()},${b.getNorth()},${b.getEast()}`;
                 fetchStations(boundsStr);
             },
+            mousemove: (e) => {
+            let found = null;
+            for (const s of stations) {
+                const markerPoint = map.latLngToContainerPoint([s.lat, s.lon]);
+                const adjustedPoint = L.point(markerPoint.x, markerPoint.y - 30);
+                const mousePoint = e.containerPoint;
+                const dist = adjustedPoint.distanceTo(mousePoint);
+                if (dist < 30) {
+                    found = s;
+                    break;
+                }
+            }
+            setHoveredStation(found);
+        },
         });
         return null;
     }
@@ -65,23 +80,17 @@ export default function Map() {
             <MapEvents />
 
             {stations.map((s) => {
-                let closeTimeout;
                 return (
-                    <Marker 
-                        key={s.uid} 
+                    <Marker
+                        key={s.uid}
                         position={[s.lat, s.lon]}
                         opacity={0}
+                        ref={(ref) => {
+                            if (ref && hoveredStation?.uid === s.uid) ref.openPopup();
+                            if (ref && hoveredStation?.uid !== s.uid) ref.closePopup();
+                        }}
                         eventHandlers={{
-                            mouseover: (e) => {
-                                clearTimeout(closeTimeout);
-                                e.target.openPopup();
-                            },
-                            mouseout: (e) => {
-                                closeTimeout = setTimeout(() => {
-                                    e.target.closePopup();
-                                }, 200);
-                            },
-                            click: () => navigate(`/detail/@${s.uid}`), // กดแล้วไปหน้า detail
+                            click: () => navigate(`/detail/@${s.uid}`),
                         }}
                     >
                         <MapPopup station={s} navigate={navigate} />
