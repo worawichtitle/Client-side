@@ -50,10 +50,15 @@ export default function ThailandAqiTile() {
         const result = await res.json();
 
         if (result?.status === "ok" && result?.data) {
-          const cityData = result.data.map((station) => ({
+          // กรองสถานีที่ไม่มี AQI (ค่าเป็น "-", หรือเป็นค่าว่าง) ทิ้ง
+          const validStations = result.data.filter((station) => {
+            const aqi = station.aqi;
+            return aqi !== null && aqi !== undefined && aqi !== "-" && aqi !== "" && !isNaN(Number(aqi));
+          });
+          const cityData = validStations.map((station) => ({
             id: station.uid || station.idx,
             city: station.city?.name || station.station?.name || "Unknown",
-            aqi: Math.max(0, Number(station.aqi) || 0), // Ensure it's a number
+            aqi: Number(station.aqi), // Ensure it's a number
             iaqi: station.iaqi || {},
             time: station.time?.s || null,
             geo: station.city?.geo || station.station?.geo || null,
@@ -61,6 +66,7 @@ export default function ThailandAqiTile() {
 
           setCities(cityData);
           setLastUpdated(new Date());
+          
           if (cityData.length > 0 && !selectedCity) {
             const sorted = sortCities(cityData, "worst");
             setSelectedCity(sorted[0]);
