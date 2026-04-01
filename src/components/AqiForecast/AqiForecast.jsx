@@ -1,4 +1,4 @@
-import { getThaiAqiLevel } from '../../utils/aqiHelper';
+import { getAqiLevel } from '../../utils/aqiHelper';
 import './AqiForecast.css';
 
 function AqiForecast({ aqiData }) {
@@ -40,7 +40,7 @@ function AqiForecast({ aqiData }) {
 
         <div className="forecast-list">
             {displayData.map((item) => {
-            const level = getThaiAqiLevel(item.avg);
+            const level = getAqiLevel(item.avg);
             const isToday = item.day === todayStr;
             const isPast = item.day < todayStr;
 

@@ -66,7 +66,7 @@ export default function Map() {
 
             {/* 2. ชั้นข้อมูลฝุ่น (WAQI_URL เดิมของคุณ) */}
             <TileLayer
-            url={`https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=${WAQI_TOKEN}`}
+            url={`https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=${API_TOKEN}`}
             attribution='Air Quality Tiles &copy; <a href="http://waqi.info">waqi.info</a>'
             />
 
