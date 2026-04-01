@@ -1,4 +1,4 @@
-import { getAqiLevel, getColorFromClass } from "../../utils/aqiHelper";
+import { getAqiLevel } from "../../utils/aqiHelper";
 import { POLLUTANTS } from "./constants";
 
 // ── Color Mappings (from CSS classes) ──
@@ -16,7 +16,7 @@ const CLASS_COLORS = {
 
 export const getLevel = (aqi) => {
   const aqiLevel = getAqiLevel(aqi);
-  const colors = CLASS_COLORS[aqiLevel.class] || CLASS_COLORS["aqi-unknown"];
+  const colors = aqiLevel.color;
   return { ...aqiLevel, ...colors };
 };
 

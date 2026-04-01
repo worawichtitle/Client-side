@@ -71,10 +71,6 @@ body {
   box-sizing: border-box;
 }
 
-.aqi-blue {
-  background: linear-gradient(135deg, #4fc3f7, #29b6f6);
-  color: #ffffff !important;
-}
 .aqi-green {
   background: linear-gradient(135deg, #81c784, #66bb6a);
   color: #ffffff !important;

@@ -1,5 +1,6 @@
 .detail-header {
   display: flex;
+  justify-content: start;
   align-items: center;
   gap: 12px;
   margin-bottom: 24px;
@@ -41,6 +42,7 @@
   background-color: #f5fbff;
   color: #0284c7;
   box-shadow: 0 4px 12px rgba(41, 182, 246, 0.15);
+  border-color: #0284c7;
   transform: translateX(-1px); 
 }
 

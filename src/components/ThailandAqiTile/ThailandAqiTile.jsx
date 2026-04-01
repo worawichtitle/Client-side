@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ThailandAqiTile.css";
-import { getAqiLevel, getColorFromClass } from "../../utils/aqiHelper";
+import { getAqiLevel } from "../../utils/aqiHelper";
 import { HEALTH_RECS, POLLUTANTS, SORT_OPTIONS, LABELS } from "./constants";
 import { AqiGauge, LoadingState, ErrorState } from "./components";
 import {
@@ -183,7 +183,7 @@ export default function ThailandAqiTile() {
                 <span
                   className="summary-stat-value"
                   style={{
-                    color: getColorFromClass(getLevel(worst.aqi).class),
+                    color: getLevel(worst.aqi).color,
                   }}
                 >
                   {worst.aqi}
@@ -208,7 +208,7 @@ export default function ThailandAqiTile() {
                 <span className="summary-stat-label">ดีที่สุด</span>
                 <span
                   className="summary-stat-value"
-                  style={{ color: getColorFromClass(getLevel(best.aqi).class) }}
+                  style={{ color: getLevel(best.aqi).color }}
                 >
                   {best.aqi}
                 </span>
@@ -307,7 +307,7 @@ export default function ThailandAqiTile() {
                     onClick={() => handleCityClick(city)}
                     style={
                       isSelected
-                        ? { borderColor: getColorFromClass(level.class) }
+                        ? { borderColor: level.color }
                         : {}
                     }
                   >
@@ -315,24 +315,22 @@ export default function ThailandAqiTile() {
                       <div className="rank-city-name">{city.city}</div>
                       <div className="rank-bar-track">
                         <div
-                          className="rank-bar-fill"
+                          className={`rank-bar-fill ${level.class}`}
                           style={{
                             width: `${Math.min((city.aqi / maxAqi) * 100, 100)}%`,
-                            background: getColorFromClass(level.class),
                           }}
                         />
                       </div>
                     </div>
                     <div className="rank-right">
                       <span
-                        className="aqi-badge"
-                        style={{ background: getColorFromClass(level.class) }}
+                        className={`aqi-badge ${level.class}`}
                       >
                         {city.aqi}
                       </span>
                       <span
                         className="rank-level"
-                        style={{ color: getColorFromClass(level.class) }}
+                        style={{ color: level.color }}
                       >
                         {level.label}
                       </span>

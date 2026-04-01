@@ -2,8 +2,6 @@
 
 import {
   getAqiLevel,
-  getColorFromClass,
-  CLASS_TO_COLOR,
 } from "../../utils/aqiHelper";
 
 const getLevel = (aqi) => getAqiLevel(aqi);
@@ -12,12 +10,12 @@ export function AqiGauge({ aqi }) {
   const level = getLevel(aqi);
   const pct = Math.min((aqi / 300) * 100, 100);
   const segments = [
-    { color: CLASS_TO_COLOR["aqi-green"], width: "16.5%" },
-    { color: CLASS_TO_COLOR["aqi-yellow"], width: "16.5%" },
-    { color: CLASS_TO_COLOR["aqi-orange"], width: "16.5%" },
-    { color: CLASS_TO_COLOR["aqi-red"], width: "16.5%" },
-    { color: CLASS_TO_COLOR["aqi-purple"], width: "16.5%" },
-    { color: CLASS_TO_COLOR["aqi-maroon"], width: "16.5%" },
+    { color: getAqiLevel(0).color, width: "16.5%" },
+    { color: getAqiLevel(100).color, width: "16.5%" },
+    { color: getAqiLevel(150).color, width: "16.5%" },
+    { color: getAqiLevel(200).color, width: "16.5%" },
+    { color: getAqiLevel(299).color, width: "16.5%" },
+    { color: getAqiLevel(300).color, width: "16.5%" },
   ];
   return (
     <div className="aqi-gauge">
@@ -41,7 +39,7 @@ export function AqiGauge({ aqi }) {
       </div>
       <div
         className="aqi-gauge-readout"
-        style={{ color: getColorFromClass(level.class) }}
+        style={{ color: level.color }}
       >
         <span className="aqi-gauge-num">{aqi}</span>
         <span className="aqi-gauge-label">{level.label}</span>
