@@ -1,42 +1,4 @@
-// ── AQI Labels & Health Recommendations ──
-
-export const AQI_LEVELS = [
-  {
-    max: 50,
-    label: "ดี",
-    color: "#22c55e",
-    bg: "#f0fdf4",
-    textColor: "#15803d",
-  },
-  {
-    max: 100,
-    label: "ปานกลาง",
-    color: "#eab308",
-    bg: "#fefce8",
-    textColor: "#854d0e",
-  },
-  {
-    max: 150,
-    label: "มีผลกระทบต่อกลุ่มเสี่ยง",
-    color: "#f97316",
-    bg: "#fff7ed",
-    textColor: "#9a3412",
-  },
-  {
-    max: 200,
-    label: "มีผลกระทบต่อสุขภาพ",
-    color: "#ef4444",
-    bg: "#fef2f2",
-    textColor: "#991b1b",
-  },
-  {
-    max: Infinity,
-    label: "อันตรายมาก",
-    color: "#a855f7",
-    bg: "#faf5ff",
-    textColor: "#6b21a8",
-  },
-];
+// ── Health Recommendations ──
 
 export const HEALTH_RECS = [
   {

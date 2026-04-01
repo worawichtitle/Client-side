@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ThailandAqiTile.css";
+import { getAqiLevel, getColorFromClass } from "../../utils/aqiHelper";
 import {
-  AQI_LEVELS,
   HEALTH_RECS,
   POLLUTANTS,
   SORT_OPTIONS,
@@ -14,6 +14,8 @@ import {
   getPollutantColor,
   getPollutantStatus,
   sortCities,
+  AQI_THRESHOLDS,
+  getAqiIndex,
 } from "./helpers";
 
 const API_TOKEN = import.meta.env.VITE_AQI_API_TOKEN;
@@ -131,9 +133,7 @@ export default function ThailandAqiTile() {
     sortMode,
   );
 
-  const worstRec = worst
-    ? HEALTH_RECS[AQI_LEVELS.findIndex((l) => worst.aqi <= l.max)]
-    : null;
+  const worstRec = worst ? HEALTH_RECS[getAqiIndex(worst.aqi)] : null;
   const worstLevel = worst ? getLevel(worst.aqi) : null;
 
   const now = new Date();
@@ -187,7 +187,7 @@ export default function ThailandAqiTile() {
                 <span className="summary-stat-label">แย่ที่สุด</span>
                 <span
                   className="summary-stat-value"
-                  style={{ color: getLevel(worst.aqi).color }}
+                  style={{ color: getColorFromClass(getLevel(worst.aqi).class) }}
                 >
                   {worst.aqi}
                 </span>
@@ -211,7 +211,7 @@ export default function ThailandAqiTile() {
                 <span className="summary-stat-label">ดีที่สุด</span>
                 <span
                   className="summary-stat-value"
-                  style={{ color: getLevel(best.aqi).color }}
+                  style={{ color: getColorFromClass(getLevel(best.aqi).class) }}
                 >
                   {best.aqi}
                 </span>
@@ -308,7 +308,7 @@ export default function ThailandAqiTile() {
                     key={city.id}
                     className={`ranking-row ${isSelected ? "ranking-row--selected" : ""}`}
                     onClick={() => handleCityClick(city)}
-                    style={isSelected ? { borderColor: level.color } : {}}
+                    style={isSelected ? { borderColor: getColorFromClass(level.class) } : {}}
                   >
                     <div className="rank-bar-wrap">
                       <div className="rank-city-name">{city.city}</div>
@@ -317,7 +317,7 @@ export default function ThailandAqiTile() {
                           className="rank-bar-fill"
                           style={{
                             width: `${Math.min((city.aqi / maxAqi) * 100, 100)}%`,
-                            background: level.color,
+                            background: getColorFromClass(level.class),
                           }}
                         />
                       </div>
@@ -325,13 +325,13 @@ export default function ThailandAqiTile() {
                     <div className="rank-right">
                       <span
                         className="aqi-badge"
-                        style={{ background: level.color }}
+                        style={{ background: getColorFromClass(level.class) }}
                       >
                         {city.aqi}
                       </span>
                       <span
                         className="rank-level"
-                        style={{ color: level.color }}
+                        style={{ color: getColorFromClass(level.class) }}
                       >
                         {level.label}
                       </span>
@@ -441,20 +441,21 @@ export default function ThailandAqiTile() {
           <div className="aqipage-section">
             <p className="section-label">ระดับคุณภาพอากาศ (AQI)</p>
             <div className="legend-list">
-              {AQI_LEVELS.map((level, i) => {
+              {AQI_THRESHOLDS.map((threshold, i) => {
+                const levelData = getLevel(threshold.max);
                 const rec = HEALTH_RECS[i];
                 const count = cities.filter((c) => {
-                  const prev = AQI_LEVELS[i - 1];
-                  return c.aqi <= level.max && (!prev || c.aqi > prev.max);
+                  const prev = AQI_THRESHOLDS[i - 1];
+                  return c.aqi <= threshold.max && (!prev || c.aqi > prev.max);
                 }).length;
                 return (
-                  <div key={level.label} className="legend-item">
+                  <div key={threshold.label} className="legend-item">
                     <span
                       className="legend-dot"
-                      style={{ background: level.color }}
+                      style={{ background: levelData.color }}
                     />
                     <div className="legend-info">
-                      <span className="legend-label">{level.label}</span>
+                      <span className="legend-label">{threshold.label}</span>
                       <span className="legend-range">
                         {i === 0
                           ? "0–50"
@@ -471,8 +472,8 @@ export default function ThailandAqiTile() {
                       <span
                         className="legend-count"
                         style={{
-                          background: level.color + "22",
-                          color: level.textColor,
+                          background: levelData.color + "22",
+                          color: levelData.textColor,
                         }}
                       >
                         {count} สถานี

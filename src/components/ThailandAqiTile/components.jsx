@@ -1,9 +1,8 @@
 // Loading, error, and gauge components extracted for cleaner code organization
 
-import { AQI_LEVELS } from "./constants";
+import { getAqiLevel, getColorFromClass } from "../../utils/aqiHelper";
 
-const getLevel = (aqi) =>
-  AQI_LEVELS.find((l) => aqi <= l.max) ?? AQI_LEVELS.at(-1);
+const getLevel = (aqi) => getAqiLevel(aqi);
 
 export function AqiGauge({ aqi }) {
   const level = getLevel(aqi);
@@ -35,7 +34,7 @@ export function AqiGauge({ aqi }) {
         <span>200</span>
         <span>300+</span>
       </div>
-      <div className="aqi-gauge-readout" style={{ color: level.color }}>
+      <div className="aqi-gauge-readout" style={{ color: getColorFromClass(level.class) }}>
         <span className="aqi-gauge-num">{aqi}</span>
         <span className="aqi-gauge-label">{level.label}</span>
       </div>

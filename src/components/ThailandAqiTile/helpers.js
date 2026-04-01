@@ -1,9 +1,38 @@
-import { AQI_LEVELS, POLLUTANTS } from "./constants";
+import { getAqiLevel, getColorFromClass } from "../../utils/aqiHelper";
+import { POLLUTANTS } from "./constants";
+
+// ── Color Mappings (from CSS classes) ──
+const CLASS_COLORS = {
+  "aqi-green": { color: "#22c55e", bg: "#f0fdf4", textColor: "#15803d" },
+  "aqi-yellow": { color: "#eab308", bg: "#fefce8", textColor: "#854d0e" },
+  "aqi-orange": { color: "#f97316", bg: "#fff7ed", textColor: "#9a3412" },
+  "aqi-red": { color: "#ef4444", bg: "#fef2f2", textColor: "#991b1b" },
+  "aqi-purple": { color: "#a855f7", bg: "#faf5ff", textColor: "#6b21a8" },
+  "aqi-maroon": { color: "#6a0dad", bg: "#f3e5fb", textColor: "#4a0080" },
+  "aqi-unknown": { color: "#999", bg: "#f5f5f5", textColor: "#666" },
+};
 
 // ── Utility Helpers ──
 
-export const getLevel = (aqi) =>
-  AQI_LEVELS.find((l) => aqi <= l.max) ?? AQI_LEVELS.at(-1);
+export const getLevel = (aqi) => {
+  const aqiLevel = getAqiLevel(aqi);
+  const colors = CLASS_COLORS[aqiLevel.class] || CLASS_COLORS["aqi-unknown"];
+  return { ...aqiLevel, ...colors };
+};
+
+export const getAqiIndex = (aqi) => {
+  return AQI_THRESHOLDS.findIndex((t) => aqi <= t.max);
+};
+
+// ── AQI Thresholds ──
+export const AQI_THRESHOLDS = [
+  { max: 50, label: "ดี" },
+  { max: 100, label: "ปานกลาง" },
+  { max: 150, label: "เริ่มมีผลกระทบ" },
+  { max: 200, label: "มีผลกระทบ" },
+  { max: 300, label: "มีผลกระทบอย่างมาก" },
+  { max: Infinity, label: "เป็นอันตราย" },
+];
 
 export const getPollutantColor = (key, value) => {
   const p = POLLUTANTS[key];
