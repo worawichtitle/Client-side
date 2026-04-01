@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ThailandAqiTile.css";
-import { HEALTH_RECS, POLLUTANTS, SORT_OPTIONS, LABELS } from "./constants";
-import AqiGauge from "./components";
+import { HEALTH_RECS, POLLUTANTS, SORT_OPTIONS, LABELS } from "../../data/constants";
+import AqiGauge from "../AqiGauge/AqiGauge";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
 import {
@@ -12,7 +12,7 @@ import {
   sortCities,
   AQI_THRESHOLDS,
   getAqiIndex,
-} from "./helpers";
+} from "../../utils/helpers";
 
 const API_TOKEN = import.meta.env.VITE_AQI_API_TOKEN;
 const BASE_URL = "https://api.waqi.info";

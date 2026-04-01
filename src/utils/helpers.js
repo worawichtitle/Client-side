@@ -1,5 +1,5 @@
-import { getAqiLevel } from "../../utils/aqiHelper";
-import { POLLUTANTS } from "./constants";
+import { getAqiLevel } from "./aqiHelper";
+import { POLLUTANTS } from "../data/constants";
 
 // ── Color Mappings (from CSS classes) ──
 const CLASS_COLORS = {

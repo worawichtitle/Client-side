@@ -3,7 +3,7 @@
 import {
   getAqiLevel,
 } from "../../utils/aqiHelper";
-
+import "./AqiGauge.css";
 const getLevel = (aqi) => getAqiLevel(aqi);
 
 export default function AqiGauge({ aqi }) {

@@ -1,0 +1,74 @@
+/* ── AQI Gauge ── */
+
+.aqi-gauge {
+  margin-bottom: 20px;
+}
+
+.aqi-gauge-track {
+  position: relative;
+  height: 12px;
+  border-radius: 99px;
+  display: flex;
+  overflow: visible;
+  gap: 2px;
+}
+
+.aqi-gauge-seg {
+  height: 100%;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.aqi-gauge-seg:first-child {
+  border-radius: 99px 2px 2px 99px;
+}
+.aqi-gauge-seg:last-child {
+  border-radius: 2px 99px 99px 2px;
+}
+
+.aqi-gauge-needle {
+  position: absolute;
+  top: -4px;
+  width: 4px;
+  height: 20px;
+  background: #111;
+  border-radius: 99px;
+  transform: translateX(-50%);
+  transition: left 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.aqi-gauge-labels {
+  position: relative;
+  height: 16px;
+  margin-top: 6px;
+  padding: 0 2px;
+}
+
+.aqi-gauge-label-item {
+  position: absolute;
+  font-size: 12px;
+  color: #bbb;
+  font-variant-numeric: tabular-nums;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+.aqi-gauge-readout {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.aqi-gauge-num {
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.aqi-gauge-label {
+  font-size: 17px;
+  font-weight: 700;
+}

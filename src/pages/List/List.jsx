@@ -1,4 +1,4 @@
-import ThailandAqiTile from "../components/ThailandAqiTile/ThailandAqiTile";
+import ThailandAqiTile from "../../components/ThailandAqiTile/ThailandAqiTile";
 import "./List.css";
 
 export default function List() {
