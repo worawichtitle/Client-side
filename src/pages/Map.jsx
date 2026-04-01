@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import MapLevel from '../components/MapLevel/MapLevel';
 
 export default function Map() {
-    const WAQI_TOKEN = "919cfe56edba50ac69a4158fd74f1a73f4fa7ce5";
+    const API_TOKEN = import.meta.env.VITE_AQI_API_TOKEN
     // พิกัดเริ่มต้น (กรุงเทพฯ)
     const position = [13.7563, 100.5018]; 
     
@@ -25,7 +25,7 @@ export default function Map() {
 
             {/* 2. ชั้นข้อมูลฝุ่น (WAQI_URL เดิมของคุณ) */}
             <TileLayer
-            url={`https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=${WAQI_TOKEN}`}
+            url={`https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=${API_TOKEN}`}
             attribution='Air Quality Tiles &copy; <a href="http://waqi.info">waqi.info</a>'
             />
         </MapContainer>

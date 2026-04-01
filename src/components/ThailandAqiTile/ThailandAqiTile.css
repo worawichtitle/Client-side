@@ -188,3 +188,45 @@
 .see-full-ranking:active {
   transform: translateY(0);
 }
+
+.loading-state,
+.error-state,
+.empty-state {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.loading-state p,
+.error-state p,
+.empty-state p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.loading-state p::after {
+  content: "";
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    content: "";
+  }
+  40% {
+    content: ".";
+  }
+  60% {
+    content: "..";
+  }
+  80%,
+  100% {
+    content: "...";
+  }
+}
+
+.error-state p {
+  color: #d32f2f;
+  font-weight: 500;
+}

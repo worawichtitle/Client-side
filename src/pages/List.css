@@ -1,0 +1,178 @@
+.list-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.list-header {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  margin-bottom: 12px;
+}
+
+.list-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.list-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.list-content {
+  flex: 1;
+}
+
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.city-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.city-card:hover {
+  box-shadow: 0 4px 16px rgba(41, 182, 246, 0.15);
+  transform: translateY(-2px);
+  border-color: #0284c7;
+}
+
+.city-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.city-card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+}
+
+.rank-badge {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.city-card-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.aqi-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.aqi-number {
+  font-size: 2rem;
+  font-weight: 700;
+  min-width: 60px;
+}
+
+.aqi-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.aqi-level {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.aqi-meaning {
+  margin: 4px 0 0 0;
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.2;
+}
+
+.city-card-footer {
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+  text-align: right;
+}
+
+.view-details {
+  font-size: 0.85rem;
+  color: #0284c7;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.city-card:hover .view-details {
+  color: #0369a1;
+}
+
+.empty-state {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 48px 24px;
+  text-align: center;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .list-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .cities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .city-card-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .rank-badge {
+    margin-left: 0;
+  }
+
+  .aqi-display {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .aqi-info {
+    width: 100%;
+  }
+}
