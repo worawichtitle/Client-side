@@ -14,13 +14,13 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function Map() {
-    const WAQI_TOKEN = import.meta.env.VITE_AQI_API_TOKEN;
+    const API_TOKEN = import.meta.env.VITE_AQI_API_TOKEN;
     const navigate = useNavigate();
     const [stations, setStations] = useState([]);
     const position = [13.7563, 100.5018]; // พิกัดเริ่มต้น (กรุงเทพฯ)
 
     const fetchStations = async (bounds) => {
-        const url = `https://api.waqi.info/map/bounds/?latlng=${bounds}&token=${WAQI_TOKEN}`;
+        const url = `https://api.waqi.info/map/bounds/?latlng=${bounds}&token=${API_TOKEN}`;
         try {
             const response = await fetch(url);
             const data = await response.json();
@@ -31,15 +31,15 @@ export default function Map() {
     };
 
     function MapEvents() {
-            const map = useMapEvents({
-                moveend: () => {
-                    const b = map.getBounds();
-                    const boundsStr = `${b.getSouth()},${b.getWest()},${b.getNorth()},${b.getEast()}`;
-                    fetchStations(boundsStr);
-                },
-            });
-            return null;
-        }
+        const map = useMapEvents({
+            moveend: () => {
+                const b = map.getBounds();
+                const boundsStr = `${b.getSouth()},${b.getWest()},${b.getNorth()},${b.getEast()}`;
+                fetchStations(boundsStr);
+            },
+        });
+        return null;
+    }
 
     // ข้อมูลคำแนะนำตามระดับสี เดี๋ยวเปลี่ยนเป็นตาม utils
     const getAdvice = (aqi) => {
