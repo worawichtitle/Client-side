@@ -1,6 +1,6 @@
 const CLASS_TO_COLOR = {
   "aqi-green": "#00E400",
-  "aqi-yellow": "#FFFF00",
+  "aqi-yellow": "#eab308",
   "aqi-orange": "#FF7E00",
   "aqi-red": "#FF0000",
   "aqi-purple": "#670099",

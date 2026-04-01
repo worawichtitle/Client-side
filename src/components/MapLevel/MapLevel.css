@@ -49,8 +49,8 @@
   bottom: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%);
-  background: #1a1a1a;
-  color: #f0f0f0;
+  background: #f0f0f0;
+  color: #1a1a1a;
   border-radius: 8px;
   padding: 10px 13px;
   width: 200px;
@@ -70,7 +70,7 @@
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
-  border-top-color: #1a1a1a;
+  border-top-color: #f0f0f0;
 }
 
 .maplevel-item.active .maplevel-tooltip {
@@ -84,5 +84,5 @@
 }
 
 .maplevel-tooltip-desc {
-  color: #ccc;
+  color: #222;
 }

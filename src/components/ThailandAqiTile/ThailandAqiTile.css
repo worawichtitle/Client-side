@@ -23,7 +23,7 @@
 
 .aqipage-title {
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 600;
   color: #111;
   margin: 0 0 3px;
   letter-spacing: -0.025em;
@@ -56,7 +56,7 @@
 
 .summary-stat-label {
   font-size: 9px;
-  font-weight: 800;
+  font-weight: 600;
   color: #ccc;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -64,7 +64,7 @@
 
 .summary-stat-value {
   font-size: 26px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
 }
@@ -181,7 +181,7 @@
 
 .section-label {
   font-size: 9px;
-  font-weight: 800;
+  font-weight: 600;
   color: #bbb;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -333,7 +333,7 @@
   display: inline-block;
   padding: 3px 8px;
   border-radius: 5px;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 12px;
   color: #fff;
   min-width: 36px;
@@ -383,7 +383,7 @@
 
 .detail-city-name {
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 600;
   color: #111;
   margin: 2px 0 0;
   letter-spacing: -0.02em;
@@ -472,7 +472,7 @@
 
 .aqi-gauge-num {
   font-size: 42px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
 }
@@ -529,7 +529,7 @@
 
 .pollutant-val {
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 600;
   color: #111;
 }
 
@@ -646,7 +646,7 @@
 .quick-stat-val {
   display: block;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 600;
   color: #111;
   letter-spacing: -0.03em;
   line-height: 1.1;

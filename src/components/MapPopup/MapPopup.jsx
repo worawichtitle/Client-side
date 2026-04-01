@@ -1,10 +1,11 @@
 import React from 'react';
 import { Popup } from 'react-leaflet';
 import './MapPopup.css';
-import { getAqiLevel } from '../../utils/aqiHelper';
+import { getAqiLevel, getColorFromClass } from '../../utils/aqiHelper';
 
 const MapPopup = ({ station }) => {
     const info = getAqiLevel(station.aqi);
+    const color = getColorFromClass(info.class);
 
     return (
         <Popup offset={[0, -40]} className="custom-aqi-popup">
@@ -18,7 +19,7 @@ const MapPopup = ({ station }) => {
                         <span className="aqi-number">{station.aqi}</span>
                         <span className="aqi-label">AQI</span>
                     </div>
-                    <p className="aqi-status">สถานะ: <span style={{ color: info.color }}>{info.level}</span></p>
+                    <p className="aqi-status">สถานะ: <span style={{ color: color }}>{info.level}</span></p>
                 </div>
 
                 
