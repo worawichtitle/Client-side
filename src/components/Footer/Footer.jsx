@@ -33,7 +33,7 @@ function Footer() {
             <h4>ข้อมูลอ้างอิง</h4>
             <ul>
               <li><a href="https://aqicn.org/" target="_blank" rel="noreferrer">World Air Quality Index (WAQI)</a></li>
-              <li>เกณฑ์คุณภาพอากาศ กรมอนามัย</li>
+              <li><a href="https://aqicn.org/scale/th/" target="_blank" rel="noreferrer">เกณฑ์คุณภาพอากาศมาตรฐาน US-EPA 2016</a></li>
             </ul>
           </div>
 
