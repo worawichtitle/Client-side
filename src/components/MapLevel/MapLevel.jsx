@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import './MapLevel.css';
+import { useState } from "react";
+import "./MapLevel.css";
 
 const LEVELS = [
   {
@@ -31,18 +31,20 @@ const LEVELS = [
     description: 'ทุกคนอาจเริ่มมีผลกระทบต่อสุขภาพ กลุ่มเสี่ยงจะมีอาการรุนแรงขึ้น',
   },
   {
-    range: '201–300',
-    label: 'มีผลกระทบอย่างมาก',
-    bg: '#670099',
-    text: '#fff',
-    description: 'แจ้งเตือนภาวะฉุกเฉิน ประชากรทุกคนมีแนวโน้มได้รับผลกระทบสูงขึ้น',
+    range: "201–299",
+    label: "มีผลกระทบอย่างมาก",
+    bg: "#670099",
+    text: "#fff",
+    description:
+      "แจ้งเตือนภาวะฉุกเฉิน ประชากรทุกคนมีแนวโน้มได้รับผลกระทบสูงขึ้น",
   },
   {
-    range: '300+',
-    label: 'เป็นอันตราย',
-    bg: '#7E0123',
-    text: '#fff',
-    description: 'ภาวะวิกฤต ทุกคนได้รับผลกระทบต่อสุขภาพอย่างรุนแรง ควรอยู่ในอาคารและหลีกเลี่ยงกิจกรรมกลางแจ้งทุกชนิด',
+    range: "300+",
+    label: "เป็นอันตราย",
+    bg: "#7E0123",
+    text: "#fff",
+    description:
+      "ภาวะวิกฤต ทุกคนได้รับผลกระทบต่อสุขภาพอย่างรุนแรง ควรอยู่ในอาคารและหลีกเลี่ยงกิจกรรมกลางแจ้งทุกชนิด",
   },
 ];
 
@@ -54,8 +56,8 @@ function MapLevel() {
       {LEVELS.map((level, i) => (
         <div
           key={i}
-          className={`maplevel-item ${hovered === i ? 'active' : ''}`}
-          style={{ '--bg': level.bg, '--txt': level.text }}
+          className={`maplevel-item ${hovered === i ? "active" : ""}`}
+          style={{ "--bg": level.bg, "--txt": level.text }}
           onMouseEnter={() => setHovered(i)}
           onMouseLeave={() => setHovered(null)}
         >

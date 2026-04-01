@@ -2,12 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ThailandAqiTile.css";
 import { getAqiLevel, getColorFromClass } from "../../utils/aqiHelper";
-import {
-  HEALTH_RECS,
-  POLLUTANTS,
-  SORT_OPTIONS,
-  LABELS,
-} from "./constants";
+import { HEALTH_RECS, POLLUTANTS, SORT_OPTIONS, LABELS } from "./constants";
 import { AqiGauge, LoadingState, ErrorState } from "./components";
 import {
   getLevel,
@@ -187,7 +182,9 @@ export default function ThailandAqiTile() {
                 <span className="summary-stat-label">แย่ที่สุด</span>
                 <span
                   className="summary-stat-value"
-                  style={{ color: getColorFromClass(getLevel(worst.aqi).class) }}
+                  style={{
+                    color: getColorFromClass(getLevel(worst.aqi).class),
+                  }}
                 >
                   {worst.aqi}
                 </span>
@@ -308,7 +305,11 @@ export default function ThailandAqiTile() {
                     key={city.id}
                     className={`ranking-row ${isSelected ? "ranking-row--selected" : ""}`}
                     onClick={() => handleCityClick(city)}
-                    style={isSelected ? { borderColor: getColorFromClass(level.class) } : {}}
+                    style={
+                      isSelected
+                        ? { borderColor: getColorFromClass(level.class) }
+                        : {}
+                    }
                   >
                     <div className="rank-bar-wrap">
                       <div className="rank-city-name">{city.city}</div>
@@ -448,6 +449,18 @@ export default function ThailandAqiTile() {
                   const prev = AQI_THRESHOLDS[i - 1];
                   return c.aqi <= threshold.max && (!prev || c.aqi > prev.max);
                 }).length;
+
+                // Generate range text dynamically from thresholds
+                let rangeText = "";
+                if (i === 0) {
+                  rangeText = `0–${threshold.max}`;
+                } else if (threshold.max === Infinity) {
+                  rangeText = `${AQI_THRESHOLDS[i - 1].max + 1}+`;
+                } else {
+                  const prevMax = AQI_THRESHOLDS[i - 1].max;
+                  rangeText = `${prevMax + 1}–${threshold.max}`;
+                }
+
                 return (
                   <div key={threshold.label} className="legend-item">
                     <span
@@ -456,17 +469,7 @@ export default function ThailandAqiTile() {
                     />
                     <div className="legend-info">
                       <span className="legend-label">{threshold.label}</span>
-                      <span className="legend-range">
-                        {i === 0
-                          ? "0–50"
-                          : i === 1
-                            ? "51–100"
-                            : i === 2
-                              ? "101–150"
-                              : i === 3
-                                ? "151–200"
-                                : "201+"}
-                      </span>
+                      <span className="legend-range">{rangeText}</span>
                     </div>
                     {count > 0 && (
                       <span
