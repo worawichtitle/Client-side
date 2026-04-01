@@ -1,4 +1,4 @@
-// Loading, error, and gauge components extracted for cleaner code organization
+// gauge components extracted for cleaner code organization
 
 import {
   getAqiLevel,
@@ -6,7 +6,7 @@ import {
 
 const getLevel = (aqi) => getAqiLevel(aqi);
 
-export function AqiGauge({ aqi }) {
+export default function AqiGauge({ aqi }) {
   const level = getLevel(aqi);
   const pct = Math.min((aqi / 500) * 100, 100);
   const segments = [
@@ -50,28 +50,6 @@ export function AqiGauge({ aqi }) {
         <span className="aqi-gauge-num">{aqi}</span>
         <span className="aqi-gauge-label">{level.level}</span>
       </div>
-    </div>
-  );
-}
-
-export function LoadingState({ loadingText, loadingSub }) {
-  return (
-    <div className="aqipage-loading">
-      <div className="loading-spinner" />
-      <p>{loadingText}</p>
-      <span className="loading-sub">{loadingSub}</span>
-    </div>
-  );
-}
-
-export function ErrorState({ error, onRetry, retryLabel }) {
-  return (
-    <div className="aqipage-error">
-      <span className="error-icon">⚠️</span>
-      <p>{error}</p>
-      <button className="retry-btn" onClick={onRetry}>
-        {retryLabel}
-      </button>
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ThailandAqiTile.css";
-import { getAqiLevel } from "../../utils/aqiHelper";
 import { HEALTH_RECS, POLLUTANTS, SORT_OPTIONS, LABELS } from "./constants";
-import { AqiGauge, LoadingState, ErrorState } from "./components";
+import AqiGauge from "./components";
+import Loading from "../Loading/Loading";
+import Error from "../Error/Error";
 import {
   getLevel,
   getPollutantColor,
@@ -147,19 +148,16 @@ export default function ThailandAqiTile() {
 
   if (isLoading) {
     return (
-      <LoadingState
-        loadingText={LABELS.loading}
-        loadingSub={LABELS.loadingSub}
+      <Loading
+        message={LABELS.loading}
       />
     );
   }
 
   if (error) {
     return (
-      <ErrorState
-        error={error}
-        onRetry={() => fetchAll()}
-        retryLabel={LABELS.retry}
+      <Error
+        message={error}
       />
     );
   }
