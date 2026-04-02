@@ -37,20 +37,53 @@ export default function List() {
       setError(null);
       try {
         const res = await fetch(
-          `${BASE_URL}/v2/map/bounds?latlng=${THAILAND_BOUNDS}&token=${API_TOKEN}`,
+          `https://api.waqi.info/map/bounds/?latlng=${THAILAND_BOUNDS}&token=${API_TOKEN}`,
         );
         const result = await res.json();
 
         if (result?.status === "ok" && result?.data) {
           const validStations = result.data.filter((station) => {
             const aqi = station.aqi;
-            return (
+            const validAqi =
               aqi !== null &&
               aqi !== undefined &&
               aqi !== "-" &&
               aqi !== "" &&
-              !isNaN(Number(aqi))
+              !isNaN(Number(aqi));
+
+            const lat = station.lat || station.latitude;
+            const lon = station.lon || station.longitude;
+            const cityName = (station.city?.name || station.station?.name || "")
+              .trim()
+              .toLowerCase();
+
+            // Exclude known Malaysian areas
+            const malaysianCities = [
+              "kangar",
+              "perlis",
+              "tanah merah",
+              "kelantan",
+              "kota bharu",
+              "langkawi",
+              "kedah",
+            ];
+            const isMalaysia =
+              malaysianCities.some((city) => cityName.includes(city)) ||
+              cityName.includes("malaysia");
+
+            // Thailand bounds
+            const inThailand =
+              lat >= 6.5 &&
+              lat <= 20.5 &&
+              lon >= 97.3 &&
+              lon <= 105.6 &&
+              !isMalaysia;
+
+            console.log(
+              `Station: ${cityName}, Lat: ${lat}, Lon: ${lon}, Valid: ${validAqi && inThailand}`,
             );
+
+            return validAqi && inThailand;
           });
           const cityData = validStations.map((station) => ({
             id: station.uid || station.idx,
