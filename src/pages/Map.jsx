@@ -80,13 +80,13 @@ export default function Map() {
             scrollWheelZoom={true}
             style={{ height: '90%', width: '100%', borderRadius: '10px', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}
         >
-            {/* 1. แผนที่พื้นหลัง (OSM_URL เดิมของคุณ) */}
+            {/* 1. แผนที่พื้นหลัง (OSM_URL) */}
             <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
 
-            {/* 2. ชั้นข้อมูลฝุ่น (WAQI_URL เดิมของคุณ) */}
+            {/* 2. ชั้นข้อมูลฝุ่น (WAQI_URL) */}
             <TileLayer
             url={`https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=${API_TOKEN}`}
             attribution='Air Quality Tiles &copy; <a href="http://waqi.info">waqi.info</a>'
